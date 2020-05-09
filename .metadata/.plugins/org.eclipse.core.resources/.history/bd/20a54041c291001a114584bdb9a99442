@@ -1,0 +1,39 @@
+package Array_Problems;
+
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+ 
+public class DuplicateInArray 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc  = new Scanner(System.in);
+        System.out.println("How many elements : ");
+        int n = sc.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter the elements : ");
+        for (int i = 0; i < n; i++) {
+			a[i] = sc.nextInt();
+		}
+        brutForce(a,n);
+    }
+
+	private static void brutForce(int[] a, int n) {
+		
+		System.out.print("Duplicates using brute force : ");
+		for(int i = 0 ; i < n ; i++)
+		{
+			for(int j = 0 ; j < n ; j++)
+			{
+				if(a[i] == a[j])
+				{
+					System.out.print(a[j] + " ");
+					break;
+				}
+			}
+		}
+		
+	}
+}
+ 

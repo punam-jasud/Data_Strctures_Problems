@@ -1,0 +1,13 @@
+package Array_Problems;
+
+import java.util.HashSet;
+import java.util.Set;
+ 
+public class DuplicateInArray 
+{
+    public static void main(String[] args) 
+    {
+        
+    }
+}
+ 

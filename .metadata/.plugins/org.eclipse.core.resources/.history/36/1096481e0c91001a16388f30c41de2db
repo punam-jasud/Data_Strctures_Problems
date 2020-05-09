@@ -1,0 +1,37 @@
+package Array_Problems;
+import java.util.Scanner;
+
+public class MissingNumberInArray {
+	
+	
+	static int getMissing(int a[],int n)
+	{
+		int sum = 0;
+		int totalSum = n*(n+1)/2;
+		for (int i = 0; i < a.length; i++) {
+			sum = sum + a[i];
+		}
+		int missing = totalSum - sum;
+		return missing;
+		
+	}
+	
+
+	public static void main(String[] args) {
+		
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		int a[] = new int[100];
+		System.out.println("How many elements: ");
+		int n = sc.nextInt();
+		System.out.println("Enter Array Elements:");
+		for (int i = 0; i < n ; i++) {
+			a[i] = sc.nextInt();
+		}
+		
+		int missingNo = getMissing(a,a[n]);
+		System.out.println(missingNo + " is missing number.");
+
+	}
+
+}

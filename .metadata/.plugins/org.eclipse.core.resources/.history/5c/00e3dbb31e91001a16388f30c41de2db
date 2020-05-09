@@ -1,0 +1,48 @@
+package Array_Problems;
+import java.util.Scanner;
+
+public class MissingNumberInArray {
+	
+	
+	static int getMissing(int a[],int n)
+	{
+		int sum = 0;
+		int totalSum = n*(n+1)/2;
+		for (int i = 0 ; i < n-1; i++) {
+			sum = sum + a[i];
+		}
+		int missing = totalSum - sum;
+		return missing;
+		
+	}
+	
+
+	public static void main(String[] args) {
+		
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		
+//		System.out.println("How many elements: ");
+    
+        int t = sc.nextInt();
+        if( t >=1 && t<=200){
+            while(t != 0){
+        		int n = sc.nextInt();
+        		if(n >= 1){
+        		//System.out.println("Enter Array Elements:");
+        		int a[] = new int[n];
+        		for (int i = 0; i < n-1 ; i++) {
+        			a[i] = sc.nextInt();
+        		}
+        		
+        		int missingNo = getMissing(a,n);
+        		System.out.println(missingNo);
+        	
+        		}
+    		    t--;
+            }
+        }
+
+	}
+
+}
