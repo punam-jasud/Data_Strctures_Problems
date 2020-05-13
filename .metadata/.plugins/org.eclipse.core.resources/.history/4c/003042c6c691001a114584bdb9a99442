@@ -19,7 +19,6 @@ public class DuplicateInArray
 		}
         brutForce(a,n);
         setAddMethodApproach(a,n);
-        
     }
 
 	private static void setAddMethodApproach(int[] a, int n) {
