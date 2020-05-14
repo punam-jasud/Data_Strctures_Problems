@@ -1,0 +1,102 @@
+//Java Program to find pairs on integer array whose sum is equal to k
+
+package Array_Problems;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class PrintPairsWithSumK {
+
+	public static void main(String[] args) {
+		Scanner sc  = new Scanner(System.in);
+		System.out.println("How many ELements : ");
+		int n = sc.nextInt();
+		
+		int a[] = new int[n];
+		System.out.println("Enter Elements: ");
+		for (int i = 0; i < n; i++) {
+			a[i] = sc.nextInt();
+		}
+		
+		System.out.println("Enter sum: ");
+		int sum = sc.nextInt();
+		
+		//brute_force_approach(a,sum); //complexity - 0(n^2)
+		//print_pairs_using_set(a,sum);  //Time Complexity - o(n) , Additional Space Complexity - o(n)
+		in_place_solution(a,sum); //Time Complexity - o(n) , No additional space required
+	}
+
+	private static void in_place_solution(int[] a, int sum) {
+		if(a.length < 2)
+		{
+			System.out.println("Insufficient Array Elements");
+			return;
+		}
+		
+		Arrays.sort(a);
+		int left = 0 ;
+		int right = a.length - 1;
+		
+		while(left < right)
+		{
+			int temp_sum = a[left] + a[right];
+			if(temp_sum == sum)
+			{
+				System.out.println("( "+a[left] + ", "+a[right]+" )");
+				left = left + 1;
+				right = right - 1;
+				
+			}
+			else if(temp_sum < sum)
+			{
+				left = left+1;
+			}
+			else if(temp_sum > sum)
+			{
+				right = right - 1;
+			}
+				
+			
+		}
+		
+		
+	}
+
+	private static void print_pairs_using_set(int[] a, int sum) {
+		if(a.length < 2)
+		{
+			System.out.println("Insufficient Array Elements");
+			return;
+		}
+		Set<Integer> s = new HashSet<>();
+		
+		for (int i = 0; i < a.length; i++) {
+			int target = sum - a[i];
+			if(!s.contains(target))
+			{
+				s.add(a[i]);
+			}
+			else
+			{
+				System.out.println("( "+a[i] + ", "+target+" )");
+			}
+		}
+		
+	}
+
+	private static void brute_force_approach(int[] a, int sum) {
+		
+		for (int i = 0; i < a.length; i++) {
+			for (int j = i+1; j < a.length; j++) {
+				if((a[i] + a[j]) == sum)
+				{
+					System.out.println("( "+a[i] + ", "+a[j]+" )");
+				}
+			}
+		}
+		
+	}
+
+}
