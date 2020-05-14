@@ -1,0 +1,83 @@
+package Array_Problems;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class QuickSortInJava {
+
+	public static void main(String[] args) {
+		Scanner sc  = new Scanner(System.in);
+		System.out.println("How many ELements : ");
+		int n = sc.nextInt();
+		
+		int a[] = new int[n];
+		System.out.println("Enter Elements: ");
+		for (int i = 0; i < n; i++) {
+			a[i] = sc.nextInt();
+		}
+		
+		QuickSortAlgorithm(a , 0 , a.length - 1);
+		
+		//Verify Sorted Array
+		System.out.println(Arrays.toString(a));
+
+	}
+
+	private static void QuickSortAlgorithm(int a[], int low, int high) {
+		
+		//Check for empty array
+		if(a == null || a.length == 0)
+		{
+			return ; 
+		}
+		if(low >= high)
+		{
+			return;
+		}
+		//Get the pivot element from the middle of the list
+		int middle = low + (high - low) /2 ;
+		int pivot = a[middle];
+		
+		int i = low , j = high;
+		while(i <= j)
+		{
+			//Check until all values on left side of array are lower than pivot
+			while(a[i] < pivot)
+			{
+				i++;
+			}
+			//Check until all values on right side of array are greater than pivot
+			while(a[j] >= pivot)
+			{
+				j--;
+			}
+			//Now compare values from both side of lists to see if they need swapping 
+            //After swapping move the iterator on both lists
+			if(i <= j)
+			{
+				swap(a,i,j);
+				i++;
+				j--;
+			}
+		}
+		 //Do same operation as above recursively to sort two sub arrays
+		if(low < j)
+		{
+			QuickSortAlgorithm(a, low, j);
+		}
+		if(high > i)
+		{
+			QuickSortAlgorithm(a, i, high);
+		}
+		
+		
+	}
+
+	private static void swap(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+		
+	}
+
+}
