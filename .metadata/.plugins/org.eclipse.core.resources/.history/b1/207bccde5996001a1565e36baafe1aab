@@ -1,0 +1,61 @@
+package Array_Problems;
+
+import java.util.Scanner;
+
+public class RemoveDuplicatesInPlaceSolution {
+	
+	public static void main(String[] args) {
+		Scanner sc  = new Scanner(System.in);
+		System.out.println("How many ELements : ");
+		int n = sc.nextInt();
+		
+		int a[] = new int[n];
+		System.out.println("Enter Elements: ");
+		for (int i = 0; i < n; i++) {
+			a[i] = sc.nextInt();
+		}
+ 
+		n = remove_duplicates_using_temporary_array(a,n); //Time complexity - o(n) , Space Complexity - o(n)
+		//Print Updated Array
+		System.out.println("Remove Duplicates using Temporary Array : ");
+		for(int i = 0 ;i < n;i++)
+		{
+			System.out.print(a[i] + " ");
+		}
+	}
+
+	private static int remove_duplicates_using_temporary_array(int[] a , int n) {
+		//Return if array is empty or contains only one element
+		if(n == 0 || n == 1)
+			return n;
+		
+		int temp[] = new int[n];
+		
+		//start traversing elments
+		int j = 0;
+		for (int i = 0; i < n-1; i++) {
+			//If current element is not equal to the next element
+			//then store that current element
+			if(a[i] != a[i+1])
+			{
+				temp[j++] = a[i];
+			}
+			
+		}
+			//store the last element as whether
+			//it is unique or repeated , it hasn't stored previously
+			temp[j++] = a[n-1];
+			
+			//Modify original array
+			for(int i = 0 ; i < j ; i++)
+			{
+				a[i] = temp[i];
+			}
+		
+		
+		return j;
+		
+	}
+
+
+}
