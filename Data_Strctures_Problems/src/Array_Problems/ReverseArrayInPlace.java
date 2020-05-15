@@ -1,0 +1,63 @@
+package Array_Problems;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class ReverseArrayInPlace {
+
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner sc  = new Scanner(System.in);
+		System.out.println("How many ELements : ");
+		int n = sc.nextInt();
+		
+		int a[] = new int[n];
+		System.out.println("Enter Elements: ");
+		for (int i = 0; i < n; i++) {
+			a[i] = sc.nextInt();
+		}
+		
+		reverseArrayUsingAnotherArray(a,n);
+		reverse_array_in_place_solution(a,n);
+		Integer [] arr = {10, 20, 30, 40, 50}; 
+		reverse(arr);
+
+	}
+
+	private static void reverse_array_in_place_solution(int[] a, int n) {
+		int mid = n/2 , temp;
+		for (int i = 0; i < mid; i++) {
+			temp = a[i];
+			a[i] = a[n - 1 - i];
+			a[n - 1 - i] = temp;
+		}
+		System.out.println("\nReversed Array Using In Place Solution is : ");
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a[i] + " ");
+		}
+	}
+
+	private static void reverseArrayUsingAnotherArray(int[] a, int n) {
+		int temp[] = new int[n];
+		int j = n-1;
+		for (int i = 0; i < n; i++) {
+			temp[j] = a[i];
+			j--;
+		}
+		System.out.println("Reversed Array is : ");
+		for (int i = 0; i < temp.length; i++) {
+			System.out.print(temp[i] + " ");
+		}
+		
+	}
+	/*function reverses the elements of the array*/
+    static void reverse(Integer[] a) 
+    { 
+    	//Reversing an array using Java collections. 
+        Collections.reverse(Arrays.asList(a)); 
+        System.out.println("\nReversed Array is : ");
+        System.out.println(Arrays.asList(a)); 
+    } 
+
+}
