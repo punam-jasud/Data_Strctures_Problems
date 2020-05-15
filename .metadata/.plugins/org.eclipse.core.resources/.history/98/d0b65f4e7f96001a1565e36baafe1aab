@@ -1,0 +1,37 @@
+package Array_Problems;
+
+import java.util.Scanner;
+
+public class ReverseArrayInPlace {
+
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner sc  = new Scanner(System.in);
+		System.out.println("How many ELements : ");
+		int n = sc.nextInt();
+		
+		int a[] = new int[n];
+		System.out.println("Enter Elements: ");
+		for (int i = 0; i < n; i++) {
+			a[i] = sc.nextInt();
+		}
+		
+		reverseArrayUsingAnotherArray(a,n);
+
+	}
+
+	private static void reverseArrayUsingAnotherArray(int[] a, int n) {
+		int temp[] = new int[n];
+		int j = n-1;
+		for (int i = 0; i < n; i++) {
+			temp[j] = a[i];
+			j--;
+		}
+		System.out.println("Reversed Array is : ");
+		for (int i = 0; i < temp.length; i++) {
+			System.out.print(temp[i] + " ");
+		}
+		
+	}
+
+}
