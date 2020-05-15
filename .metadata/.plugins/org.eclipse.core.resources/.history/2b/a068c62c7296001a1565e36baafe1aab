@@ -1,0 +1,26 @@
+//Java program to reverse array using Apache commons ArrayUtils class.
+
+package Array_Problems;
+
+import java.util.Arrays;
+
+public class ReverseArrayUsingLiabraryFunction {
+
+	public static void main(String[] args) {
+		
+		int iArray[] = {101,102,103,104,105};
+		String sArray[] = {"one" , "two","three","four","five"};
+		
+		// reverse int array using Apache commons ArrayUtils.reverse() method
+		System.out.println("Original int Array : " + Arrays.toString(iArray));
+		ArrayUtils.reverse(iArray);
+		System.out.println("Reversed int Array :" + Arrays.toString(iArray));
+		
+		// reverse string array using Apache commons ArrayUtils.reverse() method
+		System.out.println("Original string Array : " + Arrays.toString(sArray));
+		ArrayUtils.reverse(sArray);
+		System.out.println("Reversed string Array in java :" + Arrays.toString(sArray));
+						
+	}
+
+}
