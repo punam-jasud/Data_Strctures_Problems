@@ -1,5 +1,6 @@
 package Array_Problems;
 
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -8,8 +9,7 @@ public class CheckDuplicatesInArray
 {
     public static void main(String[] args) 
     {
-        @SuppressWarnings("resource")
-		Scanner sc  = new Scanner(System.in);
+        Scanner sc  = new Scanner(System.in);
         System.out.println("How many elements : ");
         int n = sc.nextInt();
         int a[] = new int[n];

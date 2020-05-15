@@ -59,8 +59,8 @@ public class FirstNonRepeatingCharacter {
 	private static char using_OnlyOne_pass(String str) {
 		//Finds first non repeated character in a String in just one pass using set and list
 		
-		Set<Character> repeating = new HashSet<>();
-		List<Character> nonRepeating = new ArrayList<>();
+		Set<Character> repeating = new HashSet();
+		List<Character> nonRepeating = new ArrayList();
 		for(int i = 0 ; i < str.length();i++)
 		{
 			char letter = str.charAt(i);

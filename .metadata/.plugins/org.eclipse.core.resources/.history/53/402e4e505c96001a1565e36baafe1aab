@@ -24,8 +24,8 @@ public class PrintPairsWithSumK {
 		System.out.println("Enter sum: ");
 		int sum = sc.nextInt();
 		
-		brute_force_approach(a,sum); //complexity - 0(n^2)
-		print_pairs_using_set(a,sum);  //Time Complexity - o(n) , Additional Space Complexity - o(n)
+		//brute_force_approach(a,sum); //complexity - 0(n^2)
+		//print_pairs_using_set(a,sum);  //Time Complexity - o(n) , Additional Space Complexity - o(n)
 		in_place_solution(a,sum); //Time Complexity - o(nlogn) , No additional space required
 	}
 

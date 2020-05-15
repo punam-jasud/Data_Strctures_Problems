@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class RemoveDuplicatesInPlaceSolution {
 	
 	public static void main(String[] args) {
-		@SuppressWarnings("resource")
 		Scanner sc  = new Scanner(System.in);
 		System.out.println("How many ELements : ");
 		int n = sc.nextInt();
@@ -101,7 +100,7 @@ public class RemoveDuplicatesInPlaceSolution {
 		
 		int temp[] = new int[n];
 		
-		//start traversing elements
+		//start traversing elments
 		int j = 0;
 		for (int i = 0; i < n-1; i++) {
 			//If current element is not equal to the next element
