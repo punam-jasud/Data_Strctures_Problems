@@ -53,7 +53,9 @@ public class DetectLoopInLinkedList {
 				fast_ptr = fast_ptr.next.next;
 						
 				if(slow_ptr == fast_ptr)
+				{
 					return true;
+				}
 			}
 			return false;
 					
@@ -64,11 +66,11 @@ public class DetectLoopInLinkedList {
 			
 			//Create a Linked List Without Loop
 			
-			llist.insert(new Node(10));
-			llist.insert(new Node(20));
-			llist.insert(new Node(30));
-			llist.insert(new Node(40));
-			llist.insert(new Node(50));
+			llist.insert(new Node(5));
+			llist.insert(new Node(6));
+			llist.insert(new Node(7));
+			llist.insert(new Node(1));
+			llist.insert(new Node(2));
 			
 			llist.display();
 			
@@ -80,13 +82,13 @@ public class DetectLoopInLinkedList {
 			//Create a Linked List With Loop
 			
 			DetectLoopInLinkedList llist1 = new DetectLoopInLinkedList();
-			Node loopNode = new Node(30);
+			Node loopNode = new Node(7);
 			
-			llist1 .insert(new Node(10));
-			llist1.insert(new Node(20));
+			llist1 .insert(new Node(5));
+			llist1.insert(new Node(6));
 			llist1.insert(loopNode);
-			llist1.insert(new Node(40));
-			llist1.insert(new Node(50));
+			llist1.insert(new Node(1));
+			llist1.insert(new Node(2));
 			
 			llist1.display();
 			
