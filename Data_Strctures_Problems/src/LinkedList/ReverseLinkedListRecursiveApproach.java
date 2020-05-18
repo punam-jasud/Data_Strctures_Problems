@@ -1,8 +1,8 @@
 package LinkedList;
 
-public class ReverseLinkedList {
+public class ReverseLinkedListRecursiveApproach {
 
-		Node head ;
+		static Node head ;
 		
 		static class Node
 		{
@@ -16,7 +16,7 @@ public class ReverseLinkedList {
 			}
 		}
 		
-		private void display() {
+		private void display(Node head) {
 			Node temp = head;
 			while(temp != null)
 			{
@@ -37,37 +37,38 @@ public class ReverseLinkedList {
 			
 		}
 		
-		private void reverseList() {
+		private Node reverseList(Node curr) {
 			
-			Node prevNode = null;
-			Node nextNode = null;
-			Node currentNode = head;
-			
-			while(currentNode != null)
+			if(curr == null)
 			{
-				nextNode = currentNode.next;
-				currentNode.next = prevNode;
-				prevNode = currentNode;
-				currentNode = nextNode;
-				
+				return null;
 			}
-			head = prevNode;
-			
+			else if(curr.next == null)
+			{
+				return curr;
+			}
+			else
+			{
+				Node newHead = reverseList(curr.next);
+				curr.next.next = curr;
+				curr.next = null;
+				return newHead;
+			}
 		}
 		
 		public static void main(String[] args) {
-			ReverseLinkedList llist = new ReverseLinkedList();
+			ReverseLinkedListRecursiveApproach llist = new ReverseLinkedListRecursiveApproach();
 			//Initialize Linked List Value
 			for(int i = 5 ; i >= 1; i--)
 			{
 				llist.insert(i);
-				llist.display();
+				llist.display(head);
 				
 			}
 			System.out.println(" ");
 			System.out.println("Reverse Linked List : \n");
-			llist.reverseList();
-			llist.display();
+			Node newHead = llist.reverseList(head);
+			llist.display(newHead);
 			
 
 		}
