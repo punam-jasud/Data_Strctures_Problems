@@ -5,6 +5,8 @@ public class CheckIfStringIsPalindrome {
 	public static void main(String[] args) {
 		
 		String str = "peep";
+		
+		//Iterative Approach
 		if(checkUsingIteration(str))
 		{
 			System.out.println(str + " is palindrome");
@@ -14,7 +16,35 @@ public class CheckIfStringIsPalindrome {
 			System.out.println(str + " is not palindrome");
 		}
 		
+		//Recursive Approach
+		if(checkUsingRecursion(str,0,str.length()-1))
+		{
+			System.out.println(str + " is palindrome");
+		}
+		else
+		{
+			System.out.println(str + " is not palindrome");
+		}
 
+		
+
+	}
+
+	private static boolean checkUsingRecursion(String str, int low, int high) {
+		
+		//base case
+		if(low >= high)
+		{
+			return true;
+		}
+		
+		//return false if mismatch happens
+		if(str.charAt(low) != str.charAt(high))
+		{
+			return false;
+		}
+		
+		return checkUsingRecursion(str, low+1, high-1);
 	}
 
 	private static boolean checkUsingIteration(String str) {
